@@ -1,0 +1,22 @@
+{
+  "name": "set-permissions",
+  "version": "1.0.0",
+  "description": "Set Permissions Function, ServerLess",
+  "main": "index.js",
+  "scripts": {
+    "test":
+      "run-local-lambda --file index.js –-event tests/event.json --timeout 3",
+    "deploy":
+      "aws lambda update-function-code --function-name arn:aws:lambda:eu-west-1:037570709369:function:set-permissions --zip-file fileb://Lambda-Deployment.zip",
+    "predeploy": "zip -r Lambda-Deployment.zip * -x *.zip *.log"
+  },
+  "keywords": [],
+  "author": "Umair Ahmed",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.3.2"
+  },
+  "devDependencies": {
+    "run-local-lambda": "^1.1.1"
+  }
+}

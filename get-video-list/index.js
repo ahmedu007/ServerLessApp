@@ -2,6 +2,7 @@
 
 const AWS = require("aws-sdk");
 const async = require("async");
+const email = require("./email");
 
 const s3 = new AWS.S3();
 function createBucketParams(next) {

@@ -1,0 +1,24 @@
+{
+  "name": "get-video-list",
+  "version": "1.0.0",
+  "description":
+    "This Lambda function will list videos available in an S3 bucket",
+  "main": "index.js",
+  "scripts": {
+    "create":
+      "aws lambda create-function --function-name get-video-list --handler index.handler --memory-size 128 -runtime nodejs4.3 --role arn:aws:iam::037570709369:role/service-role/lambda-s3-execution-role --timeout 3 --publish --zip-file fileb://Lambda-Deployment.zip",
+    "deploy":
+      "aws lambda update-function-code --function-name get-video-list --zip-file fileb://Lambda-Deployment.zip",
+    "precreate": "zip -r Lambda-Deployment.zip * -x *.zip *.log",
+    "predeploy": "zip -r Lambda-Deployment.zip * -x *.zip *.log"
+  },
+  "dependencies": {
+    "async": "^2.6.0",
+    "aws-sdk": "^2.3.2"
+  },
+  "author": "Umair Ahmed",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "run-local-lambda": "^1.1.1"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "get-upload-policy",
+  "version": "1.0.0",
+  "description": "Transcode Video Function, ServerLess",
+  "main": "index.js",
+  "scripts": {
+    "test":
+      "run-local-lambda --file index.js –-event tests/event.json --timeout 3",
+    "deploy":
+      "aws lambda update-function-code --function-name arn:aws:lambda:eu-west-1:037570709369:function:get-upload-policy --zip-file fileb://Lambda-Deployment.zip",
+    "predeploy": "zip -r Lambda-Deployment.zip * -x *.zip *.log"
+  },
+  "keywords": [],
+  "author": "Umair Ahmed",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.0",
+    "aws-sdk": "^2.3.2",
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "run-local-lambda": "^1.1.1"
+  }
+}

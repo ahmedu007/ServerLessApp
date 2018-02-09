@@ -7,7 +7,11 @@ const s3 = new AWS.S3();
 function createErrorResponse(code, message, encoding) {
   var response = {
     statusCode: code,
-    headers: { "Access-Control-Origin": "*" },
+    headers: {
+      "Access-Control-Origin": "*",
+      "Access-Control-Allow-Credentials": "*",
+      "Access-Control-Allow-Origin": "*"
+    },
     body: JSON.stringify({ code, message, encoding })
   };
 
@@ -17,7 +21,11 @@ function createErrorResponse(code, message, encoding) {
 function createSuccessResponse(result) {
   var response = {
     statusCode: 200,
-    headers: { "Access-Control-Origin": "*" },
+    headers: {
+      "Access-Control-Origin": "*",
+      "Access-Control-Allow-Credentials": "*",
+      "Access-Control-Allow-Origin": "*"
+    },
     body: JSON.stringify(result)
   };
 

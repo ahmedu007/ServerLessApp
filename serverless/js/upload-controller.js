@@ -23,6 +23,7 @@ var uploadController = {
         that.data.config.apiBaseUrl +
         "/s3-policy-document?filename=" +
         encodeURI(file.name);
+      console.log(requestDocumentUrl);
       $.get(requestDocumentUrl, function(data, status) {
         that.upload(file, data, that);
       });

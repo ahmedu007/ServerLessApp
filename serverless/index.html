@@ -58,6 +58,20 @@
 
 
   <div class="container" id="video-list-container">
+    <br>
+    <br>
+    <br>
+    <span id="upload-video-button" class="btn btn-info btn-file">
+      <span class="glyphicon glyphicon-plus"></span>
+      <input id="upload" type="file" name="file">
+    </span>
+    <br>
+    <br>
+    <br>
+    <div class="progress" id="upload-progress">
+      <div class="progress-bar progress-bar-info progress-bar-striped" ➥role="progressbar" aria-valuemin="0" aria-valuemax="100">
+      </div>
+    </div>
     <div id="video-template" class="col-md-6 col">
       <div class="video-card">
         <video width="100%" height="100%" controls>
@@ -78,6 +92,7 @@
   <script src="https://cdn.auth0.com/js/lock-9.min.js"></script>
   <script src="js/video-controller.js"></script>
   <script src="js/user-controller.js"></script>
+  <script src="js/upload-controller.js"></script>
   <script src="js/config.js"></script>
 
   <script src="js/main.js"></script>

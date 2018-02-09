@@ -8,7 +8,8 @@ const userController = {
     logoutButton: null,
     profileButton: null,
     profileNameLabel: null,
-    profileImage: null
+    profileImage: null,
+    uploadButton: null
   },
   init: function(config) {
     const that = this;
@@ -17,6 +18,7 @@ const userController = {
     this.uiElements.profileButton = $("#user-profile");
     this.uiElements.profileNameLabel = $("#profilename");
     this.uiElements.profileImage = $("#profilepicture");
+    this.uiElements.uploadButton = $("#upload-video-button");
     this.data.config = config;
     this.data.auth0Lock = new Auth0Lock(
       config.auth0.clientId,
@@ -51,12 +53,14 @@ const userController = {
     if (showAuthenticationElements) {
       this.uiElements.profileNameLabel.text(profile.nickname);
       this.uiElements.profileImage.attr("src", profile.picture);
+      this.uiElements.uploadButton.css("display", "inline-block");
     }
 
     this.uiElements.loginButton.toggle(!showAuthenticationElements);
     this.uiElements.logoutButton.toggle(showAuthenticationElements);
     this.uiElements.profileButton.toggle(showAuthenticationElements);
   },
+
   wireEvents: function() {
     const that = this;
     this.uiElements.loginButton.click(function(e) {
@@ -75,12 +79,15 @@ const userController = {
         }
       });
     });
+
     this.uiElements.logoutButton.click(function(e) {
       localStorage.removeItem("userToken");
       that.uiElements.logoutButton.hide();
       that.uiElements.profileButton.hide();
+      that.uiElements.uploadButton.hide();
       that.uiElements.loginButton.show();
     });
+
     this.uiElements.profileButton.click(function(e) {
       var url = that.data.config.apiBaseUrl + "/user-profile";
       $.get(url, function(data, status) {

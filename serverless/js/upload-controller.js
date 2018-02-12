@@ -26,8 +26,6 @@ var uploadController = {
       console.log(requestDocumentUrl);
       $.get(requestDocumentUrl, function(data, status) {
         that.upload(file, data, that);
-        console.log("file", file);
-        console.log("data", data);
       });
     });
   },

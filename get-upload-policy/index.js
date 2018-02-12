@@ -29,6 +29,7 @@ function createSuccessResponse(message) {
 
   return response;
 }
+
 function base64encode(value) {
   return new Buffer(value).toString("base64");
 }

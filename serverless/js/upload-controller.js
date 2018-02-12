@@ -26,6 +26,8 @@ var uploadController = {
       console.log(requestDocumentUrl);
       $.get(requestDocumentUrl, function(data, status) {
         that.upload(file, data, that);
+        console.log("file", file);
+        console.log("data", data);
       });
     });
   },
@@ -43,7 +45,8 @@ var uploadController = {
     fd.append("signature", data.signature);
     fd.append("file", file, file.name);
     $.ajax({
-      url: data.upload_url,
+      url: "http://serverless-video-upload-ua.s3-eu-west-1.amazonaws.com/",
+      // url: data.upload_url,
       type: "POST",
       data: fd,
       processData: false,

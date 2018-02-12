@@ -82,7 +82,11 @@ exports.handler = function(event, context, callback) {
           signature: signature,
           encoded_policy: encoding,
           access_key: process.env.ACCESS_KEY,
-          upload_url: process.env.UPLOAD_URI + "/" + process.env.UPLOAD_BUCKET,
+          upload_url:
+            "http://" +
+            process.env.UPLOAD_BUCKET +
+            "." +
+            process.env.UPLOAD_URI,
           key: key
         };
         callback(null, createSuccessResponse(result));

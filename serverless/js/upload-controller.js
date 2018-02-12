@@ -23,7 +23,6 @@ var uploadController = {
         that.data.config.apiBaseUrl +
         "/s3-policy-document?filename=" +
         encodeURI(file.name);
-      console.log(requestDocumentUrl);
       $.get(requestDocumentUrl, function(data, status) {
         that.upload(file, data, that);
       });
@@ -43,8 +42,7 @@ var uploadController = {
     fd.append("signature", data.signature);
     fd.append("file", file, file.name);
     $.ajax({
-      url: "http://serverless-video-upload-ua.s3-eu-west-1.amazonaws.com/",
-      // url: data.upload_url,
+      url: data.upload_url,
       type: "POST",
       data: fd,
       processData: false,

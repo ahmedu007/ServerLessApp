@@ -23,3 +23,6 @@ yarn-error.log*
 
 auth0-variables.js
 .env
+
+firebase*
+.firebase*
